@@ -14,6 +14,7 @@ phpize
 	--enable-mysqlnd \
     --enable-sockets \
     --enable-async-redis=/tmp/hiredis-0.13.3
+make clean
 make
 make install
 
