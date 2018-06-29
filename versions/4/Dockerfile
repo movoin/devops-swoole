@@ -19,6 +19,7 @@ RUN set -x \
         autoconf \
         make \
         gcc \
+        gcc-c++ \
         zlib-devel \
     # Install
     && /opt/docker/bin/install.sh \
