@@ -1,7 +1,9 @@
-source /opt/docker/bin/functions.sh
+###
+ # Common Functions
+ ##
+source "$DOCKER_CONF_PATH/bin/functions.sh"
 
 cd /tmp
-
 wget https://github.com/redis/hiredis/archive/v0.13.3.tar.gz
 tar zxf v0.13.3.tar.gz
 
@@ -12,8 +14,8 @@ phpize
 ./configure \
 	--enable-coroutine \
 	--enable-mysqlnd \
-    --enable-sockets \
-    --enable-async-redis=/tmp/hiredis-0.13.3
+	--enable-sockets \
+	--enable-async-redis=/tmp/hiredis-0.13.3
 make clean
 make
 make install

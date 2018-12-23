@@ -2,31 +2,25 @@
 # Docker Image      movoin/devops-swoole
 #
 # MAINTAINER        Allen Luo <movoin@gmail.com>
-# DOCKER-VERSION    1.12.3
+# DOCKER-VERSION    18.09.0
 #
 
-FROM        movoin/devops-php7
-MAINTAINER  Allen Luo <movoin@gmail.com>
+FROM movoin/devops-php7
 
 ENV SWOOLE_VERSION  4.0.1
 ENV SWOOLE_URL      "http://pecl.php.net/get/swoole-${SWOOLE_VERSION}.tgz"
 ENV SWOOLE_PORT     9501
 
-COPY conf/ /opt/docker/
+COPY conf/          $DOCKER_CONF_PATH
 
 RUN set -x \
     && /usr/local/bin/docker-install \
-        autoconf \
-        make \
-        gcc \
-        gcc-c++ \
-        zlib-devel \
-    # Install
-    && /opt/docker/bin/install.sh \
+    autoconf \
+    make \
+    gcc \
+    gcc-c++ \
+    zlib-devel \
     # Bootstrap
-    && /opt/docker/bin/bootstrap.sh \
-    # Clean
-    && yum -y erase zlib-devel \
-    && yum clean all
+    && $DOCKER_CONF_PATH/bin/bootstrap.sh
 
 EXPOSE $SWOOLE_PORT
