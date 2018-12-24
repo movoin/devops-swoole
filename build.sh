@@ -32,7 +32,7 @@ echo "> Running docker"
 
 echo ""
 
-docker build -t "${REPO_NAME}:${TAG_NAME}" ${DOCKERFILE_PATH}/${TAG_NAME}
+docker build --no-cache --force-rm -t "${REPO_NAME}:${TAG_NAME}" ${DOCKERFILE_PATH}/${TAG_NAME}
 
 echo ""
 

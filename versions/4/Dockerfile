@@ -7,7 +7,7 @@
 
 FROM movoin/devops-php7
 
-ENV SWOOLE_VERSION  4.0.1
+ENV SWOOLE_VERSION  4.2.10
 ENV SWOOLE_URL      "http://pecl.php.net/get/swoole-${SWOOLE_VERSION}.tgz"
 ENV SWOOLE_PORT     9501
 
